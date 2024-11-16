@@ -10,17 +10,24 @@
 
   <div *ngIf="userProfile$ | async as userProfile" class="account-info">
     <div class="notification">
-      <app-notifications/>
+      <app-notifications />
     </div>
     <div class="coins">
-      <app-coins [coins]="userProfile.coins" [isLink]="true"/>
+      <app-coins [coins]="userProfile.coins" [isLink]="true" />
     </div>
     <div (click)="openModal()" class="account-image">
-      <a>
-        <img alt="" src="{{userProfile.avatar}}">
-      </a>
-
+      <div class="img">
+        @if (userProfile.avatar) {
+          <a>
+            <img alt="" src="{{ userProfile.avatar }}" />
+          </a>
+        } @else {
+          <a>
+            <img src="/assets/images/main/profile.png" alt="" />
+          </a>
+        }
+      </div>
     </div>
   </div>
+  <app-header-menu [(visible)]="modalVisible"></app-header-menu>
 </div>
-<app-header-menu [(visible)]="modalVisible"></app-header-menu>
