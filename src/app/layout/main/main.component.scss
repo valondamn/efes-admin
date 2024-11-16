@@ -16,34 +16,118 @@
     @include align-items(center);
     border-radius: 16px;
     height: 160px;
+    background-color: $primary-white;
 
     .banner-content {
       padding: 44px 40px;
-      color: $primary-white;
+      color: $primary-black;
       @include heading_2;
-    }
+      @include flexbox;
+      @include flex-direction(column);
+      @include gap(12px);
 
+      p {
+        margin: 0;
+      }
+
+      .sub-content {
+        color: $neutral-500;
+        @include paragraph;
+      }
+    }
   }
 
-  .most-popular {
+  .info-blocks {
     @include flexbox;
-    @include flex-direction(column);
-    @include gap(16px);
+    @include align-items(center);
+    @include gap(24px);
 
-    &__title {
-      font-size: 20px;
-      font-family: 'Inter-regular';
+    .card {
+      @include flexbox;
+      @include align-items(center);
+      @include gap(16px);
+      background-color: $primary-white;
+      padding: 12px;
+      width: 100%;
+      border-radius: 16px;
+
+      .logo {
+        padding: 16px;
+        background-color: $brand-100;
+        border-radius: 12px;
+      }
+
+      .info {
+        @include flexbox;
+        @include flex-direction(column);
+        @include gap(6px);
+
+        .text {
+          @include xxs;
+          color: $neutral-500;
+        }
+
+        .value {
+          @include heading_2;
+          color: $primary-black;
+        }
+      }
     }
   }
-
-  .recommendations {
+  .analytics-container {
     @include flexbox;
-    @include flex-direction(column);
-    @include gap(16px);
+    @include gap(24px);
+    @include align-items(center);
 
-    &__title {
-      font-size: 20px;
-      font-family: 'Inter-regular';
+    .analytics {
+      @include flexbox;
+      @include flex-direction(column);
+      @include gap(16px);
+      background-color: $primary-white;
+      padding: 24px;
+      border-radius: 24px;
+      width: 66%;
+
+      .title {
+        @include flexbox;
+        @include gap(16px);
+        @include align-items(center);
+
+        .icon {
+          padding: 16px;
+          background-color: $neutral-100;
+          border-radius: 1000px;
+          width: 56px;
+          height: 56px;
+        }
+
+        .text {
+          @include heading_4_regular;
+        }
+      }
+    }
+
+    .most-popular {
+      @include flexbox;
+      @include flex-direction(column);
+      @include gap(16px);
+      height: 100%;
+      background-color: #ffffff;
+      padding: 24px;
+      border-radius: 24px;
+      width: 32%;
+
+      .title {
+        @include flexbox;
+        @include flex-direction(column);
+        @include gap(8px);
+        @include heading_4_regular;
+
+        .sub-text {
+          @include description;
+          color: $neutral-500;
+        }
+      }
     }
   }
 }
